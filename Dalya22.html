@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dalya Ahmed</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#4f46e5,#7c3aed,#9333ea);
+overflow-x:hidden;
+}
+
+/*====================
+واجهة الترحيب
+====================*/
+
+#welcome{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100vh;
+
+background:linear-gradient(135deg,#312e81,#6d28d9);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+transition:1s;
+
+}
+
+.welcome-card{
+
+background:white;
+
+width:90%;
+
+max-width:600px;
+
+padding:40px;
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+
+animation:fade 1s;
+
+}
+
+.welcome-card h1{
+
+color:#6d28d9;
+
+font-size:40px;
+
+margin-bottom:15px;
+
+}
+
+.welcome-card p{
+
+font-size:20px;
+
+line-height:2;
+
+color:#555;
+
+margin-bottom:30px;
+
+}
+
+.enter{
+
+background:#6d28d9;
+
+color:white;
+
+padding:15px 35px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.enter:hover{
+
+transform:scale(1.08);
+
+background:#5b21b6;
+
+}
+
+/*====================
+الموقع
+====================*/
+
+#main{
+
+display:none;
+
+}
+
+.navbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px;
+
+color:white;
+
+font-size:22px;
+
+}
+
+.logo{
+
+font-weight:bold;
+
+}
+
+.menu-btn{
+
+font-size:34px;
+
+cursor:pointer;
+
+}
+
+.sidebar{
+
+position:fixed;
+
+top:0;
+
+right:-250px;
+
+width:250px;
+
+height:100%;
+
+background:white;
+
+padding-top:70px;
+
+transition:.4s;
+
+box-shadow:0 0 20px rgba(0,0,0,.2);
+
+z-index:100;
+
+}
+
+.sidebar.active{
+
+right:0;
+
+}
+
+.sidebar a{
+
+display:block;
+
+padding:18px 25px;
+
+text-decoration:none;
+
+color:#333;
+
+font-size:18px;
+
+}
+
+.sidebar a:hover{
+
+background:#f2f2f2;
+
+}
+
+.hero{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:80vh;
+
+padding:20px;
+
+}
+
+.card{
+
+background:white;
+
+width:100%;
+
+max-width:700px;
+
+padding:40px;
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+}
+
+.card h1{
+
+font-size:45px;
+
+color:#6d28d9;
+
+margin-bottom:15px;
+
+}
+
+.card h2{
+
+color:#444;
+
+margin-bottom:20px;
+
+}
+
+.card p{
+
+font-size:20px;
+
+line-height:2;
+
+color:#555;
+
+}
+
+.btn{
+
+display:inline-block;
+
+margin-top:25px;
+
+background:#6d28d9;
+
+color:white;
+
+padding:15px 35px;
+
+text-decoration:none;
+
+border-radius:12px;
+
+font-size:20px;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:#5b21b6;
+
+transform:scale(1.05);
+
+}
+
+.footer{
+
+text-align:center;
+
+padding:20px;
+
+color:white;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- واجهة الترحيب -->
+
+<div id="welcome">
+
+<div class="welcome-card">
+
+<h1>🌹 أهلاً وسهلاً بكم</h1>
+
+<p>
+
+مرحباً بكم في الموقع الشخصي
+
+<br>
+
+<b>Dalya Ahmed</b>
+
+<br><br>
+
+يسعدني زيارتكم، وأتمنى لكم جولة ممتعة داخل موقعي.
+
+</p>
+
+<button class="enter" onclick="openSite()">
+
+دخول إلى الموقع
+
+</button>
+
+</div>
+
+</div>
+
+<!-- بداية الموقع -->
+
+<div id="main">
+
+<!-- القائمة العلوية -->
+
+<div class="navbar">
+
+<div class="menu-btn"
+
+onclick="toggleMenu()">
+
+☰
+
+</div>
+
+<div class="logo">
+
+Dalya Ahmed
+
+</div>
+
+</div>
+
+<!-- القائمة الجانبية -->
+
+<div class="sidebar"
+
+id="menu">
+
+<a href="Dalya22.html">
+
+🏠 الرئيسية
+
+</a>
+
+<a href="A.html#about">
+
+👩‍💻 نبذة عني
+
+</a>
+
+<a href="A.html#skills">
+
+💻 مهاراتي
+
+</a>
+
+<a href="A.html#contact">
+
+📱 تواصل معي
+
+</a>
+
+</div>
+
+<!-- الواجهة الرئيسية -->
+
+<div class="hero">
+
+<div class="card">
+
+<h1>
+
+أهلاً بكم في موقعي
+
+</h1>
+
+<h2>
+
+Dalya Ahmed
+
+</h2>
+
+<p>
+
+طالبة بجامعة الفاشر – كلية علوم الحاسوب،
+
+قسم الإحصاء والحاسوب.
+
+<br><br>
+
+شغوفة بالتقنية والبرمجة وتحليل البيانات،
+
+وأسعى دائماً إلى تطوير مهاراتي
+
+واكتساب الخبرات التي تساعدني
+
+على الإبداع والتميز.
+
+</p>
+
+<a href="A.html"
+
+class="btn">
+
+الدخول إلى الموقع
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+© 2026 Dalya Ahmed
+
+</div>
+<script>
+
+/* فتح وإغلاق القائمة الجانبية */
+
+function toggleMenu(){
+
+document.getElementById("menu").classList.toggle("active");
+
+}
+
+/* الانتقال من صفحة الترحيب إلى الصفحة الرئيسية */
+
+function openSite(){
+
+document.getElementById("welcome").style.opacity="0";
+
+setTimeout(function(){
+
+document.getElementById("welcome").style.display="none";
+
+document.getElementById("main").style.display="block";
+
+},600);
+
+}
+
+</script>
+
+</div>
+
+</body>
+
+</html>
